@@ -93,6 +93,10 @@ img {
     user-select: none;
 }
 
+.opaco {
+    opacity: 0.3;
+}
+
 .icone:active {
     transform: scale(0.95);
 }

@@ -17,9 +17,9 @@
                 <div class="preenchimento"></div>
             </div>
             <div class="players">
-                <p class="icone">⏮</p>
+                <p class="icone opaco">⏮</p>
                 <button onclick="tocarMusica()" class="icone" id="player">▶</button>
-                <p class="icone">⏭</p>
+                <p class="icone opaco">⏭</p>
                 <audio id="minhaMusica" src="Tribalistas - Velha Infância.mp3" preload="auto"></audio>
             </div>
             <div class="letra">
@@ -84,7 +84,7 @@
         function tocarMusica() {
             if (!tocando) {
                 audio.play();
-                document.getElementById('player').innerText = "⏸";
+                document.getElementById('player').innerText = "❚❚";
             } else {
                 audio.pause();
                 document.getElementById('player').innerText = "▶";
