@@ -11,29 +11,26 @@
         <div>
             <p>Nossa playlist</p>
             <img src="aabc39c8-f696-4028-b5f4-73facad97d11.jpg">
-            <p><strong>Velha Infância</strong></p>
-            <p>Tribalistas</p>
+            <p id="nome">Velha Infância</p>
+            <p id="artista">Tribalistas</p>
             <div class="progresso">
                 <div class="preenchimento"></div>
             </div>
             <div class="players">
-                <p class="icone opaco">⏮</p>
+                <button onclick="anterior()" class="icone opaco">⏮</button>
                 <button onclick="tocarMusica()" class="icone" id="player">▶</button>
-                <p class="icone opaco">⏭</p>
-                <audio id="minhaMusica" src="Tribalistas - Velha Infância.mp3" preload="auto"></audio>
+                <button onclick="proxima()" class="icone opaco">⏭</button>
+                <audio id="minhaMusica" src="velhaInfancia.mp3" preload="auto"></audio>
             </div>
             <div class="letra">
                 <p><strong>Letra</strong></p>
                 <p>Meu amor,</p>
                 <p>Muito obrigado por fazer desse ano o mais incrível de todos desde a primeira hora dele.</p>
                 <p>Você é a pessoa mais especial desse mundo inteiro, e a razão da minha felicidade nesse ano, e tenho certeza que para a minha vida inteira.</p>
-                <p>O que aconteceu no ano novo há exatamente um ano atrás foi um sinal de que tudo nesse meu ano seria por você, e para você.</p>
-                <p>Desde aquele dia, até a nossa primeira foto que postamos juntos, até aquele dia 22, nosso primeiro dia juntos na faculdade, a nossa primeira viagem...</p>
-                <p>Em todos as ruas, restaurantes, bares, karaokês, praias...</p>
-                <p>São tantos momentos que eu não conseguiria escrever todos aqui, e esse é só o começo.</p> 
+                <p>O que aconteceu no ano novo há exatamente um ano atrás foi um sinal de que tudo nesse meu ano seria por você, e para você, e é impossível falar dos melhores momentos dele sem te citar, porque você foi a razão de todos eles.</p>
                 <p>Temos bilhões de outros momentos para viver, lugares para visitar, experiências pra ter. E eu não podia estar mais animado do que eu estou pra tudo isso.</p>
                 <p>Que o nosso 2026 seja ainda melhor que o nosso 2025, e é só você que eu quero pra esse ano, porque é só de você que eu preciso pra estar bem.</p>
-               <p>Minha melhor amiga é o meu amor, e eu amo ela mais do que tudo nesse mundo.</p>
+                <p>Minha melhor amiga é o meu amor, e eu amo ela mais do que tudo nesse mundo.</p>
                 <p>De 2025 até o final da minha vida.</p>
             </div>
             <div class="sobre">
@@ -42,6 +39,20 @@
                 <p>Amanda e Bernardo estão juntos oficialmente há</p>
                 <div id="contador"></div>
                 <p>E cada segundo desses que se passa é mais incrível que o anterior!</p>
+                <p>Eles ficaram pela primeira vez no dia 01/01/2025.</p>
+                <p>O primeiro encontro mesmo foi no dia 04/01/2025, para ver Auto da Compadecida 2 no cinema.</p>
+                <p>No dia 26/02, postaram a primeira foto dos dois, e depois disso, passaram o carnaval juntos.</p>
+                <p>No dia 12/03, Amanda foi aprovada para a UFJF, onde os dois estudam agora.</p>
+                <p>Começaram a namorar no dia 22/03.</p>
+                <p>No dia 28/03, saíram juntos em Juiz de Fora pela primeira vez</p>
+                <p>Dia 22/04 foram para Juiz de Fora para o ínicio das aulas da Amanda.</p>
+                <p>A primeira festa que foram juntos foi a Alcooltéia, no dia 17/05.</p>
+                <p>No dia 05/07, fizeram a primeira viagem juntos, para Miracema.</p>
+                <p>A primeira só dos dois mesmo foi no dia 05/09, para Niterói.</p>
+                <p>E essas foram só algumas das coisas que o casal fez, entre milhões de outras nesse tempo todo, uma mais incrível que a outra.</p>
+                <p>Conheceram restaurantes, bares, cinemas, praias, karaokês, ruas, casas, apartamentos...</p>
+                <p>E têm a certeza de que ainda tem bilhões de outros momentos para viver, lugares para visitar, experiências pra ter.</p>
+                <p>E o mais importante de tudo, sempre juntos.</p>
             </div>
             <div class="creditos">
                 <p>Créditos</p>
@@ -95,6 +106,46 @@
                 document.getElementById('player').innerText = "▶";
             }
             tocando = !tocando; 
+        }
+
+        const musicas = ['velhaInfancia.mp3', 'bb.mp3', 'deJaneiroAJaneiro.mp3', 'domodachi.mp3'];
+        const nomes = ['Velha Infância', 'BB (Garupa da Moto Amarela)', 'De Janeiro a Janeiro', 'Domodachi'];
+        const artistas = ['Tribalistas', 'Tim Bernardes', 'Roberta Campos', 'RM'];
+
+        const nome = document.getElementById('nome');
+        const artista = document.getElementById('artista');
+
+        let track = 0;
+
+        function proxima(){
+            if (track < musicas.length - 1){
+                track = track+1;
+                audio.src = musicas[track];
+                audio.load();
+
+            }
+            else {
+                track = musicas.length - 1;
+            }
+            nome.innerText = nomes[track];
+            artista.innerText = artistas[track];
+            tocando = false;
+            tocarMusica();
+        }
+
+        function anterior(){
+            if (track >= 1){
+                track = track-1;
+                audio.src = musicas[track];
+                audio.load();
+            }
+            else {
+                track = 0;
+            }
+            nome.innerText = nomes[track];
+            artista.innerText = artistas[track];
+            tocando = false;
+            tocarMusica();
         }
 
         const barra = document.querySelector('.preenchimento');
