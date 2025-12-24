@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify</title>
+  <link rel="stylesheet" href="teste.css">
+</head>
+<body>
+    <div class="principal">
+        <div>
+            <p>Nossa playlist</p>
+            <img src="aabc39c8-f696-4028-b5f4-73facad97d11.jpg">
+            <p><strong>Velha Infância</strong></p>
+            <p>Tribalistas</p>
+            <div class="progresso">
+                <div class="preenchimento"></div>
+            </div>
+            <div class="players">
+                <p class="icone">⏮</p>
+                <p class="icone">▶</p>
+                <p class="icone">⏭</p>
+            </div>
+            <div class="letra">
+                <p><strong>Letra</strong></p>
+                <p>Meu amor,</p>
+                <p>Muito obrigado por fazer desse ano o mais incrível de todos desde a primeira hora dele.</p>
+                <p>Você é a pessoa mais especial desse mundo inteiro, e a razão da minha felicidade nesse ano, e tenho certeza que para a minha vida inteira.</p>
+                <p>O que aconteceu no ano novo há exatamente um ano atrás foi um sinal de que tudo nesse meu ano seria por você, e para você.</p>
+                <p>Desde aquele dia, até a nossa primeira foto que postamos juntos, até aquele dia 22, nosso primeiro dia juntos na faculdade, a nossa primeira viagem...</p>
+                <p>Em todos as ruas, restaurantes, bares, karaokês, praias...</p>
+                <p>São tantos momentos que eu não conseguiria escrever todos aqui, e esse é só o começo.</p> 
+                <p>Temos bilhões de outros momentos para viver, lugares para visitar, experiências pra ter. E eu não podia estar mais animado do que eu estou pra tudo isso.</p>
+                <p>Que o nosso 2026 seja ainda melhor que o nosso 2025, e é só você que eu quero pra esse ano, porque é só de você que eu preciso pra estar bem.</p>
+               <p>Minha melhor amiga é o meu amor, e eu amo ela mais do que tudo nesse mundo.</p>
+                <p>De 2025 até o final da minha vida.</p>
+            </div>
+            <div class="sobre">
+                <p>Sobre nós</p>
+                <img src="ea1a034a-9307-4a47-bcc1-ca8f2bff00bf.jpg" class="fade">
+                <p>Nós estamos juntos oficialmente há</p>
+                <div id="contador"></div>
+                <p>E cada segundo desses que se passa é mais incrível que o anterior!</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const inicio = new Date('2025-03-22T18:00:00');
+        
+        function atualizarContador() {
+            const agora = new Date();
+            const diff = agora - inicio;
+            
+            if (diff < 0) {
+                document.getElementById('contador').innerText = "Aguardando nosso dia...";
+                return;
+            }
+            
+            const s = Math.floor(diff / 1000);
+            const m = Math.floor(s / 60);
+            const h = Math.floor(m / 60);
+            const d = Math.floor(h / 24);
+            
+            let texto;
+            if (window.innerWidth <= 400) {
+                texto = `${d}d ${h%24}h ${m%60}m ${s%60}s`;
+            } else {
+                texto = `${d} dias, ${h % 24} horas, ${m % 60} minutos e ${s % 60} segundos`;
+            }
+            
+            document.getElementById('contador').innerText = texto;
+        }
+        
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
+        
+        document.querySelectorAll('.icone').forEach(botao => {
+            botao.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            botao.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
