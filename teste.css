@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(180deg, hsl(156, 100%, 37%) 0%, #008f11 30%, #008b27 60%, #002b0a 85%, #000000 100%);
+    background: linear-gradient(180deg, hsl(156, 98%, 19%) 0%, #003907 30%, #00290c 60%, #001d07 85%, #000000 100%);
     padding: 15px;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     width: 100%;
     max-width: 500px;
     min-height: auto;
-    background-color: #494949;
+    background: linear-gradient(180deg, hsl(156, 98%, 19%) 0%, #003907 30%, #00290c 60%, #001d07 85%, #000000 100%);
     color: white;
     border-radius: 10px;
     display: flex;
@@ -27,7 +27,6 @@ body {
     justify-content: flex-start;
     font-size: 16px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin: 0 auto;
 }
