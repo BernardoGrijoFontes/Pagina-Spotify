@@ -18,8 +18,9 @@
             </div>
             <div class="players">
                 <p class="icone">⏮</p>
-                <p class="icone">▶</p>
+                <button class="icone">▶</button>
                 <p class="icone">⏭</p>
+                <audio id="minhaMusica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
             </div>
             <div class="letra">
                 <p><strong>Letra</strong></p>
@@ -69,6 +70,24 @@
             }
             
             document.getElementById('contador').innerText = texto;
+
+
+
+
+            const audio = document.getElementById('minhaMusica');
+            const botao = document.querySelector('.botao-play');
+        
+            function toggleMusica() {
+                if (audio.paused) {
+                    audio.play();
+                    botao.textContent = '⏸';
+                    botao.classList.add('tocando');
+                } else {
+                    audio.pause();
+                    botao.textContent = '▶';
+                    botao.classList.remove('tocando');
+                }
+            }
         }
         
         atualizarContador();
