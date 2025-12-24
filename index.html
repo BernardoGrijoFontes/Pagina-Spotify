@@ -18,9 +18,9 @@
             </div>
             <div class="players">
                 <p class="icone">⏮</p>
-                <button class="icone">▶</button>
+                <button onclick="tocarMusica()" class="icone" id="player">▶</button>
                 <p class="icone">⏭</p>
-                <audio id="minhaMusica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
+                <audio id="minhaMusica" src="Tribalistas - Velha Infância.mp3" preload="auto"></audio>
             </div>
             <div class="letra">
                 <p><strong>Letra</strong></p>
@@ -50,13 +50,7 @@
         
         function atualizarContador() {
             const agora = new Date();
-            const diff = agora - inicio;
-            
-            if (diff < 0) {
-                document.getElementById('contador').innerText = "Aguardando nosso dia...";
-                return;
-            }
-            
+            const diff = agora - inicio;            
             const s = Math.floor(diff / 1000);
             const m = Math.floor(s / 60);
             const h = Math.floor(m / 60);
@@ -67,27 +61,8 @@
                 texto = `${d}d ${h%24}h ${m%60}m ${s%60}s`;
             } else {
                 texto = `${d} dias, ${h % 24} horas, ${m % 60} minutos e ${s % 60} segundos`;
-            }
-            
+            }            
             document.getElementById('contador').innerText = texto;
-
-
-
-
-            const audio = document.getElementById('minhaMusica');
-            const botao = document.querySelector('.botao-play');
-        
-            function toggleMusica() {
-                if (audio.paused) {
-                    audio.play();
-                    botao.textContent = '⏸';
-                    botao.classList.add('tocando');
-                } else {
-                    audio.pause();
-                    botao.textContent = '▶';
-                    botao.classList.remove('tocando');
-                }
-            }
         }
         
         atualizarContador();
@@ -102,6 +77,11 @@
                 this.style.transform = '';
             });
         });
+
+        function tocarMusica(){
+            document.getElementById('minhaMusica').play();
+            document.getElementById('player').innerText = "⏸";
+        }
     </script>
 </body>
 </html>
