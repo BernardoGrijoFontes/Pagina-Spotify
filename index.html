@@ -78,10 +78,24 @@
             });
         });
 
-        function tocarMusica(){
-            document.getElementById('minhaMusica').play();
-            document.getElementById('player').innerText = "⏸";
+        let tocando = false;
+        const audio = document.getElementById('minhaMusica');
+
+        function tocarMusica() {
+            if (!tocando) {
+                audio.play();
+                document.getElementById('player').innerText = "⏸";
+            } else {
+                audio.pause();
+                document.getElementById('player').innerText = "▶";
+            }
+            tocando = !tocando; 
         }
+
+        const barra = document.querySelector('.preenchimento');
+        audio.addEventListener('timeupdate', function() {
+            barra.style.width = (audio.currentTime / audio.duration * 100) + '%';
+        });
     </script>
 </body>
 </html>
