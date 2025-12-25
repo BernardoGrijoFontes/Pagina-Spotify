@@ -9,8 +9,8 @@
 <body>
     <div class="principal">
         <div>
-            <p>Nossa playlist</p>
-            <img src="aabc39c8-f696-4028-b5f4-73facad97d11.jpg">
+            <p>Algumas músicas que marcaram o nosso 2025</p>
+            <img id="foto" src="0.jpg">
             <p id="nome">Velha Infância</p>
             <p id="artista">Tribalistas</p>
             <div class="progresso">
@@ -23,8 +23,8 @@
                 <audio id="minhaMusica" src="velhaInfancia.mp3" preload="auto"></audio>
             </div>
             <div class="letra">
-                <p><strong>Letra</strong></p>
-                <p>Meu amor,</p>
+                <p><strong>Uma mensagem para o meu amor:</strong></p>
+                <p>Minha princesa,</p>
                 <p>Muito obrigado por fazer desse ano o mais incrível de todos desde a primeira hora dele.</p>
                 <p>Você é a pessoa mais especial desse mundo inteiro, e a razão da minha felicidade nesse ano, e tenho certeza que para a minha vida inteira.</p>
                 <p>O que aconteceu no ano novo há exatamente um ano atrás foi um sinal de que tudo nesse meu ano seria por você, e para você, e é impossível falar dos melhores momentos dele sem te citar, porque você foi a razão de todos eles.</p>
@@ -108,12 +108,14 @@
             tocando = !tocando; 
         }
 
-        const musicas = ['velhaInfancia.mp3', 'bb.mp3', 'deJaneiroAJaneiro.mp3', 'domodachi.mp3'];
-        const nomes = ['Velha Infância', 'BB (Garupa da Moto Amarela)', 'De Janeiro a Janeiro', 'Domodachi'];
-        const artistas = ['Tribalistas', 'Tim Bernardes', 'Roberta Campos', 'RM'];
+        const musicas = ['velhaInfancia.mp3', 'umAmorPuro.mp3', 'bb.mp3', 'deJaneiroAJaneiro.mp3', '500miles.mp3', 'beautifulThings.mp3', 'exile.mp3', 'laVieEnRose.mp3', 'gnarly.mp3', 'whistling.mp3', 'domodachi.mp3', 'allTooWell.mp3', 'dtMF.mp3', 'spaghetti.mp3'];
+        const nomes = ['Velha Infância', 'Um Amor Puro', 'BB (Garupa da Moto Amarela)', 'De Janeiro a Janeiro', 'Im Gonna Be (500 Miles)', 'Beautiful Things', 'exile', 'La Vie en Rose', 'Gnarly',  'Whistling', 'Domodachi', 'All Too Well (10 Minute version)', 'DtMF', 'SPAGHETTI'];
+        const artistas = ['Tribalistas', 'Djavan', 'Tim Bernardes', 'Roberta Campos', 'The Proclaimers', 'Benson Boone', 'Taylor Swift', 'Emily Watts', 'Katseye', 'Jonny Stanbeck', 'RM', 'Taylor Swift', 'Bad Bunny', 'LE SSERAFIM'];
+        const fotos = ['0.jpg', '1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg', '6.jpeg', '7.jpeg', '8.jpeg', '9.jpeg', '10.jpeg', '11.jpeg', '12.jpeg', '13.jpeg']
 
         const nome = document.getElementById('nome');
         const artista = document.getElementById('artista');
+        const foto = document.getElementById('foto');
 
         let track = 0;
 
@@ -122,7 +124,6 @@
                 track = track+1;
                 audio.src = musicas[track];
                 audio.load();
-
             }
             else {
                 track = musicas.length - 1;
@@ -131,6 +132,7 @@
             artista.innerText = artistas[track];
             tocando = false;
             tocarMusica();
+            foto.src = fotos[track];
         }
 
         function anterior(){
@@ -146,6 +148,7 @@
             artista.innerText = artistas[track];
             tocando = false;
             tocarMusica();
+            foto.src = fotos[track];
         }
 
         const barra = document.querySelector('.preenchimento');
