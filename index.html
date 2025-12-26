@@ -105,6 +105,9 @@
                 document.getElementById('player').innerText = "▶";
             }
             tocando = !tocando; 
+            if (audio.currentTime == audio.duration){
+                proxima();
+            }
         }
 
         const musicas = ['velhaInfancia.mp3', 'umAmorPuro.mp3', 'bb.mp3', 'deJaneiroAJaneiro.mp3', '500Miles.mp3', 'beautifulThings.mp3', 'exile.mp3', 'laVieEnRose.mp3', 'gnarly.mp3', 'whistling.mp3', 'domodachi.mp3', 'allTooWell.mp3', 'dtMF.mp3', 'spaghetti.mp3'];
@@ -154,6 +157,7 @@
         audio.addEventListener('timeupdate', function() {
             barra.style.width = (audio.currentTime / audio.duration * 100) + '%';
         });
+        audio.addEventListener('ended', )
     </script>
 </body>
 </html>
