@@ -126,15 +126,14 @@
                 track = track+1;
                 audio.src = musicas[track];
                 audio.load();
+                audio.pause();
+                nome.innerText = nomes[track];
+                artista.innerText = artistas[track];
+                tocando = false;
+                tocarMusica();
+                foto.src = fotos[track];
             }
-            else {
-                track = musicas.length - 1;
-            }
-            nome.innerText = nomes[track];
-            artista.innerText = artistas[track];
-            tocando = false;
-            tocarMusica();
-            foto.src = fotos[track];
+
         }
 
         function anterior(){
@@ -142,22 +141,23 @@
                 track = track-1;
                 audio.src = musicas[track];
                 audio.load();
+                audio.pause();
+                nome.innerText = nomes[track];
+                artista.innerText = artistas[track];
+                tocando = false;
+                tocarMusica();
+                foto.src = fotos[track];
             }
-            else {
-                track = 0;
-            }
-            nome.innerText = nomes[track];
-            artista.innerText = artistas[track];
-            tocando = false;
-            tocarMusica();
-            foto.src = fotos[track];
+
         }
 
         const barra = document.querySelector('.preenchimento');
         audio.addEventListener('timeupdate', function() {
             barra.style.width = (audio.currentTime / audio.duration * 100) + '%';
         });
-        audio.addEventListener('ended', )
+        audio.addEventListener('ended', function(){
+            proxima();
+        })
     </script>
 </body>
 </html>
