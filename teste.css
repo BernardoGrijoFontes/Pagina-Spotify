@@ -49,6 +49,21 @@ img {
     display: block;
 }
 
+.titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+} 
+
+.name {
+    font-size:larger
+}
+
+.artist {
+    opacity: 0.8;
+}
+
 .fade {
     opacity: 0.5;
 }
