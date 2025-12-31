@@ -17,7 +17,7 @@ body {
 
 .principal {
     width: 100%;
-    max-width: 500px;
+    max-width: none;
     min-height: auto;
     background: linear-gradient(180deg, hsl(156, 98%, 19%) 0%, #003907 30%, #00290c 60%, #001d07 85%, #000000 100%);
     color: white;
